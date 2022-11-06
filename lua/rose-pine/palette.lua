@@ -22,6 +22,24 @@ local variants = {
 		highlight_high = '#524f67',
 		none = 'NONE',
 	},
+	test = {
+		base = '#191724',
+		surface = '#1f1d2e',
+		overlay = '#26233a',
+		muted = '#6e6a86',
+		subtle = '#908caa',
+		text = '#e0def4',
+		love = '#eb6f92',
+		gold = '#f6c177',
+		rose = '#ebbcba',
+		pine = '#31748f',
+		foam = '#9ccfd8',
+		iris = '#c4a7e7',
+		highlight_low = '#21202e',
+		highlight_med = '#403d52',
+		highlight_high = '#524f67',
+		none = 'NONE',
+	},
 	moon = {
 		---@deprecated for backwards compatibility
 		_experimental_nc = '#1f1d30',
@@ -68,6 +86,21 @@ local variants = {
 
 if variants[options.variant] ~= nil then
 	return variants[options.variant]
+
+local palette = {}
+
+local selected_variant = vim.g.rose_pine_variant
+
+if vim.o.background == 'light' then
+	palette = variants.dawn
+else
+	if selected_variant == 'moon' then
+		palette = variants['moon']
+	elseif selected_variant == 'test' then
+		palette = variants['test']
+	else
+		palette = variants['main']
+	end
 end
 
 return vim.o.background == 'light' and variants.dawn
