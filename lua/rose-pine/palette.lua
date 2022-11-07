@@ -22,7 +22,7 @@ local variants = {
 		highlight_high = '#524f67',
 		none = 'NONE',
 	},
-	test = {
+	glam = {
 		base = '#111018',
 		surface = '#1f1d2e',
 		overlay = '#26233a',
@@ -95,11 +95,11 @@ if vim.o.background == 'light' then
 	palette = variants.dawn
 else
 	if selected_variant == 'moon' then
-		palette = variants['moon']
-	elseif selected_variant == 'test' then
-		palette = variants['test']
+		palette = variants.moon
+	elseif selected_variant == 'glam' then
+		palette = variants.glam
 	else
-		palette = variants['main']
+		palette = variants.main
 	end
 end
 
